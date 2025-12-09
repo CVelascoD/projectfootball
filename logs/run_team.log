@@ -1,0 +1,676 @@
+2025-11-25 13:36:33,956 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 13:36:33,957 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 13:36:33,969 INFO Globals inyectados en teams_full_connection.
+2025-11-25 13:36:33,969 INFO Llamando a teams_full_connection.main() ...
+2025-11-25 13:57:24,821 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 13:57:24,821 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 13:57:24,829 INFO Globals inyectados en teams_full_connection.
+2025-11-25 13:57:24,829 INFO Llamando a teams_full_connection.main() ...
+2025-11-25 13:58:21,874 INFO run_team finalizado.
+2025-11-25 14:06:25,918 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 14:06:25,918 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 14:06:25,923 INFO Globals inyectados en teams_full_connection.
+2025-11-25 14:06:25,923 INFO Llamando a teams_full_connection.main() ...
+2025-11-25 14:17:04,218 INFO run_team finalizado.
+2025-11-25 20:40:18,236 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 20:40:18,237 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 20:40:18,252 ERROR No se pudo importar teams_full_connection: cannot import name 'Player' from 'agent' (/home/camilo/Desktop/projectfootball/agent/__init__.py)
+Traceback (most recent call last):
+  File "/home/camilo/Desktop/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/camilo/Desktop/projectfootball/teams_full_connection.py", line 14, in <module>
+    from agent import Player
+ImportError: cannot import name 'Player' from 'agent' (/home/camilo/Desktop/projectfootball/agent/__init__.py)
+2025-11-25 20:43:35,333 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 20:43:35,333 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 20:43:35,356 ERROR No se pudo importar teams_full_connection: cannot import name 'Player' from 'agent.agent' (/home/camilo/Desktop/projectfootball/agent/agent.py)
+Traceback (most recent call last):
+  File "/home/camilo/Desktop/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/camilo/Desktop/projectfootball/teams_full_connection.py", line 14, in <module>
+    from agent import Player
+  File "/home/camilo/Desktop/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+ImportError: cannot import name 'Player' from 'agent.agent' (/home/camilo/Desktop/projectfootball/agent/agent.py)
+2025-11-25 20:47:45,549 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 20:47:45,549 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 20:47:45,556 INFO Globals inyectados en teams_full_connection.
+2025-11-25 20:47:45,556 INFO Llamando a teams_full_connection.main() ...
+2025-11-25 20:51:31,462 INFO run_team finalizado.
+2025-11-25 20:51:41,334 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 20:51:41,335 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 20:51:41,346 INFO Globals inyectados en teams_full_connection.
+2025-11-25 20:51:41,346 INFO Llamando a teams_full_connection.main() ...
+2025-11-25 21:07:29,623 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-25 21:07:29,623 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-25 21:07:29,629 INFO Globals inyectados en teams_full_connection.
+2025-11-25 21:07:29,629 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 17:24:08,156 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 17:24:08,157 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 17:24:08,173 INFO Globals inyectados en teams_full_connection.
+2025-11-26 17:24:08,173 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 17:39:40,511 INFO run_team finalizado.
+2025-11-26 17:39:53,476 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 17:39:53,477 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 17:39:53,485 INFO Globals inyectados en teams_full_connection.
+2025-11-26 17:39:53,485 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 17:48:29,206 INFO run_team finalizado.
+2025-11-26 17:48:52,575 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 17:48:52,578 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 17:48:52,589 INFO Globals inyectados en teams_full_connection.
+2025-11-26 17:48:52,589 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 17:49:46,445 INFO run_team finalizado.
+2025-11-26 17:56:39,634 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 17:56:39,634 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 17:56:39,648 INFO Globals inyectados en teams_full_connection.
+2025-11-26 17:56:39,648 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:01:03,882 INFO run_team finalizado.
+2025-11-26 18:01:21,022 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:01:21,024 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:01:21,040 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:01:21,041 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:04:26,908 INFO run_team finalizado.
+2025-11-26 18:04:44,123 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:04:44,123 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:04:44,137 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:04:44,137 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:07:11,224 INFO run_team finalizado.
+2025-11-26 18:07:31,904 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:07:31,904 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:07:31,918 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:07:31,918 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:12:35,337 INFO run_team finalizado.
+2025-11-26 18:12:51,900 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:12:51,900 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:12:51,912 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:12:51,913 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:16:15,035 INFO run_team finalizado.
+2025-11-26 18:17:53,678 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:17:53,678 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:17:53,691 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:17:53,691 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:18:10,410 INFO run_team finalizado.
+2025-11-26 18:27:09,273 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:27:09,273 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:27:09,295 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:27:09,296 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:36:23,643 INFO run_team finalizado.
+2025-11-26 18:36:44,524 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:36:44,525 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:36:44,541 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:36:44,542 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:37:12,051 INFO run_team finalizado.
+2025-11-26 18:39:05,078 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:39:05,078 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:39:05,090 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:39:05,092 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:39:39,497 INFO run_team finalizado.
+2025-11-26 18:40:23,371 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:40:23,371 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:40:23,377 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:40:23,378 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:40:49,858 INFO run_team finalizado.
+2025-11-26 18:42:59,404 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:42:59,405 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:42:59,426 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:42:59,426 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:43:57,058 INFO run_team finalizado.
+2025-11-26 18:54:34,790 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 18:54:34,793 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 18:54:34,825 INFO Globals inyectados en teams_full_connection.
+2025-11-26 18:54:34,828 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 18:55:01,216 INFO run_team finalizado.
+2025-11-26 19:09:20,271 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:09:20,272 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:09:20,293 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:09:20,293 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:09:29,678 INFO run_team finalizado.
+2025-11-26 19:11:18,469 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:11:18,474 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:11:18,502 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:11:18,503 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:15:52,271 INFO run_team finalizado.
+2025-11-26 19:16:00,952 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:16:00,960 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:16:00,971 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:16:00,971 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:16:00,972 ERROR Error durante la ejecución de teams_full_connection.main(): name 'host' is not defined
+Traceback (most recent call last):
+  File "/home/camilo/Desktop/projectfootball/run_team.py", line 68, in main
+    teams_full_connection.main()
+  File "/home/camilo/Desktop/projectfootball/teams_full_connection.py", line 222, in main
+    t = threading.Thread(target=player_thread, args=(i, positions, host, port))
+                                                                   ^^^^
+NameError: name 'host' is not defined
+2025-11-26 19:16:00,974 INFO run_team finalizado.
+2025-11-26 19:18:47,008 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:18:47,008 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:18:47,032 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:18:47,033 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:19:02,046 INFO run_team finalizado.
+2025-11-26 19:32:47,438 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:32:47,438 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:32:47,467 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:32:47,469 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:33:15,992 INFO run_team finalizado.
+2025-11-26 19:42:04,709 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:42:04,711 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:42:04,730 ERROR No se pudo importar teams_full_connection: expected an indented block after function definition on line 79 (agent.py, line 80)
+Traceback (most recent call last):
+  File "/home/camilo/Desktop/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/camilo/Desktop/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/camilo/Desktop/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/camilo/Desktop/projectfootball/agent/agent.py", line 80
+    self.conn.send_actions(actions)
+    ^^^^
+IndentationError: expected an indented block after function definition on line 79
+2025-11-26 19:43:32,008 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:43:32,008 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:43:32,017 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:43:32,017 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:43:42,408 INFO run_team finalizado.
+2025-11-26 19:52:01,027 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 19:52:01,029 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 19:52:01,060 INFO Globals inyectados en teams_full_connection.
+2025-11-26 19:52:01,060 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 19:52:22,917 INFO run_team finalizado.
+2025-11-26 20:00:22,658 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:00:22,663 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:00:22,673 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:00:22,673 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:00:42,902 INFO run_team finalizado.
+2025-11-26 20:20:09,010 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:20:09,012 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:20:09,121 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:20:09,123 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:20:23,464 INFO run_team finalizado.
+2025-11-26 20:39:02,061 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:39:02,062 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:39:02,079 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:39:02,079 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:39:57,930 INFO run_team finalizado.
+2025-11-26 20:40:50,950 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:40:50,950 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:40:50,960 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:40:50,961 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:41:25,339 INFO run_team finalizado.
+2025-11-26 20:49:48,645 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:49:48,650 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:49:48,673 ERROR Archivo de configuración no encontrado: conf_file.conf
+2025-11-26 20:51:43,613 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:51:43,616 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:51:43,633 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:51:43,634 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:52:18,018 INFO run_team finalizado.
+2025-11-26 20:52:31,665 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:52:31,669 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:52:31,685 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:52:31,686 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 20:53:20,330 INFO run_team finalizado.
+2025-11-26 20:53:31,172 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 20:53:31,174 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 20:53:31,195 INFO Globals inyectados en teams_full_connection.
+2025-11-26 20:53:31,196 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 21:03:24,258 INFO run_team finalizado.
+2025-11-26 21:08:16,483 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 21:08:16,484 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 21:08:16,514 INFO Globals inyectados en teams_full_connection.
+2025-11-26 21:08:16,515 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 21:09:07,834 INFO run_team finalizado.
+2025-11-26 21:27:51,053 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 21:27:51,055 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 21:27:51,075 INFO Globals inyectados en teams_full_connection.
+2025-11-26 21:27:51,076 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 21:29:36,827 INFO run_team finalizado.
+2025-11-26 21:29:46,510 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 21:29:46,510 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 21:29:46,533 INFO Globals inyectados en teams_full_connection.
+2025-11-26 21:29:46,533 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 21:31:21,998 INFO run_team finalizado.
+2025-11-26 21:57:11,761 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 21:57:11,763 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 21:57:11,801 INFO Globals inyectados en teams_full_connection.
+2025-11-26 21:57:11,801 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 21:57:31,884 INFO run_team finalizado.
+2025-11-26 22:22:43,685 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 22:22:43,685 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 22:22:43,698 INFO Globals inyectados en teams_full_connection.
+2025-11-26 22:22:43,698 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 22:24:11,786 INFO run_team finalizado.
+2025-11-26 22:24:18,460 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 22:24:18,461 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 22:24:18,470 INFO Globals inyectados en teams_full_connection.
+2025-11-26 22:24:18,470 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 22:25:43,586 INFO run_team finalizado.
+2025-11-26 22:34:04,438 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-26 22:34:04,438 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-26 22:34:04,447 INFO Globals inyectados en teams_full_connection.
+2025-11-26 22:34:04,447 INFO Llamando a teams_full_connection.main() ...
+2025-11-26 22:34:29,169 INFO run_team finalizado.
+2025-11-27 01:30:15,846 INFO Logging inicializado. fichero=logs/run_team.log
+2025-11-27 01:30:15,846 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-11-27 01:30:15,870 INFO Globals inyectados en teams_full_connection.
+2025-11-27 01:30:15,870 INFO Llamando a teams_full_connection.main() ...
+2025-11-27 01:31:24,569 INFO run_team finalizado.
+2025-12-01 15:14:05,340 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 15:14:05,340 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 15:14:05,349 INFO Globals inyectados en teams_full_connection.
+2025-12-01 15:14:05,349 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 15:18:23,199 INFO run_team finalizado.
+2025-12-01 15:18:46,451 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 15:18:46,452 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 15:18:46,459 INFO Globals inyectados en teams_full_connection.
+2025-12-01 15:18:46,459 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 15:19:08,953 INFO run_team finalizado.
+2025-12-01 15:25:36,969 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 15:25:36,969 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 15:25:36,976 INFO Globals inyectados en teams_full_connection.
+2025-12-01 15:25:36,976 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 15:37:48,059 INFO run_team finalizado.
+2025-12-01 16:00:39,537 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 16:00:39,537 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 16:00:39,547 INFO Globals inyectados en teams_full_connection.
+2025-12-01 16:00:39,547 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 16:03:10,369 INFO run_team finalizado.
+2025-12-01 16:05:01,380 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 16:05:01,380 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 16:05:01,387 INFO Globals inyectados en teams_full_connection.
+2025-12-01 16:05:01,387 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 16:09:51,416 INFO run_team finalizado.
+2025-12-01 16:19:31,542 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 16:19:31,543 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 16:19:31,549 INFO Globals inyectados en teams_full_connection.
+2025-12-01 16:19:31,549 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 16:36:58,779 INFO run_team finalizado.
+2025-12-01 16:52:40,411 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 16:52:40,412 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 16:52:40,425 INFO Globals inyectados en teams_full_connection.
+2025-12-01 16:52:40,425 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 16:53:54,913 INFO run_team finalizado.
+2025-12-01 16:55:15,610 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 16:55:15,610 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 16:55:15,617 INFO Globals inyectados en teams_full_connection.
+2025-12-01 16:55:15,617 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 16:57:30,510 INFO run_team finalizado.
+2025-12-01 17:13:21,671 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:13:21,671 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:13:21,682 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:13:21,682 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:19:33,557 INFO run_team finalizado.
+2025-12-01 17:24:15,494 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:24:15,494 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:24:15,502 ERROR No se pudo importar teams_full_connection: No module named 'agents'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 4, in <module>
+    from agent.fsm import AgentFSM
+  File "/home/cvelsd/DataScience/projectfootball/agent/fsm.py", line 4, in <module>
+    from agents.roles import get_role
+ModuleNotFoundError: No module named 'agents'
+2025-12-01 17:25:28,774 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:25:28,774 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:25:28,778 ERROR No se pudo importar teams_full_connection: No module named 'agents'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 4, in <module>
+    from agent.fsm import AgentFSM
+  File "/home/cvelsd/DataScience/projectfootball/agent/fsm.py", line 4, in <module>
+    from agents.roles import get_role
+ModuleNotFoundError: No module named 'agents'
+2025-12-01 17:25:41,984 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:25:41,984 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:25:41,988 ERROR No se pudo importar teams_full_connection: No module named 'agents'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 4, in <module>
+    from agent.fsm import AgentFSM
+  File "/home/cvelsd/DataScience/projectfootball/agent/fsm.py", line 4, in <module>
+    from agents.roles import get_role
+ModuleNotFoundError: No module named 'agents'
+2025-12-01 17:28:37,837 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:28:37,837 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:28:37,842 ERROR No se pudo importar teams_full_connection: cannot import name 'Player' from 'agent.agent' (/home/cvelsd/DataScience/projectfootball/agent/agent.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+ImportError: cannot import name 'Player' from 'agent.agent' (/home/cvelsd/DataScience/projectfootball/agent/agent.py)
+2025-12-01 17:29:34,934 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:29:34,935 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:29:34,941 ERROR No se pudo importar teams_full_connection: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 5, in <module>
+    from agent.roles import RoleManager
+ImportError: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+2025-12-01 17:35:46,437 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:35:46,437 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:35:46,443 ERROR No se pudo importar teams_full_connection: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 13, in <module>
+    from agent.roles import RoleManager
+ImportError: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+2025-12-01 17:35:07,782 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:35:07,782 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:35:07,785 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:35:07,785 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:35:07,785 ERROR Error durante la ejecución de teams_full_connection.main(): module 'teams_full_connection' has no attribute 'main'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 68, in main
+    teams_full_connection.main()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'teams_full_connection' has no attribute 'main'
+2025-12-01 17:35:07,786 INFO run_team finalizado.
+2025-12-01 17:35:51,231 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:35:51,232 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:35:51,234 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:35:51,234 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:35:51,234 INFO teams_full_connection.main(): función dummy ejecutada.
+2025-12-01 17:35:51,234 INFO run_team finalizado.
+2025-12-01 17:38:52,845 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:38:52,845 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:38:52,853 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:38:52,853 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:41:01,414 INFO run_team finalizado.
+2025-12-01 17:41:06,516 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:41:06,516 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:41:06,526 ERROR No se pudo importar teams_full_connection: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 13, in <module>
+    from agent.roles import RoleManager
+ImportError: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+2025-12-01 17:42:41,192 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:42:41,192 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:42:41,201 ERROR No se pudo importar teams_full_connection: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 5, in <module>
+    from agent.roles import RoleManager
+ImportError: cannot import name 'RoleManager' from 'agent.roles' (/home/cvelsd/DataScience/projectfootball/agent/roles.py)
+2025-12-01 17:44:13,133 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:44:13,133 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:44:13,146 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:44:13,146 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:44:50,783 INFO run_team finalizado.
+2025-12-01 17:45:41,289 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 17:45:41,289 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 17:45:41,300 INFO Globals inyectados en teams_full_connection.
+2025-12-01 17:45:41,300 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 17:47:34,744 INFO run_team finalizado.
+2025-12-01 18:02:41,952 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:02:41,952 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:02:41,963 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:02:41,963 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:05:17,398 INFO run_team finalizado.
+2025-12-01 18:04:57,408 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:04:57,408 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:04:57,416 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:04:57,416 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:06:40,077 INFO run_team finalizado.
+2025-12-01 18:11:24,061 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:11:24,061 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:11:24,069 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:11:24,069 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:14:05,333 INFO run_team finalizado.
+2025-12-01 18:15:09,226 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:15:09,227 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:15:09,234 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:15:09,234 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:16:58,622 INFO run_team finalizado.
+2025-12-01 18:23:49,697 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:23:49,697 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:23:49,707 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:23:49,707 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:30:53,664 INFO run_team finalizado.
+2025-12-01 18:31:59,168 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:31:59,168 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:31:59,179 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:31:59,180 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 18:37:58,776 INFO run_team finalizado.
+2025-12-01 18:52:35,986 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:52:35,986 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:52:36,002 ERROR No se pudo importar teams_full_connection: expected an indented block after function definition on line 30 (fsm.py, line 31)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 4, in <module>
+    from agent.fsm import AgentFSM
+  File "/home/cvelsd/DataScience/projectfootball/agent/fsm.py", line 31
+    """
+    ^^^
+IndentationError: expected an indented block after function definition on line 30
+2025-12-01 18:56:40,573 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 18:56:40,573 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 18:56:40,582 INFO Globals inyectados en teams_full_connection.
+2025-12-01 18:56:40,582 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:05:54,341 INFO run_team finalizado.
+2025-12-01 19:05:45,084 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:05:45,084 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:05:45,093 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:05:45,093 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:11:12,348 INFO run_team finalizado.
+2025-12-01 19:13:42,076 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:13:42,076 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:13:42,087 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:13:42,087 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:15:26,208 INFO run_team finalizado.
+2025-12-01 19:17:35,284 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:17:35,285 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:17:35,294 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:17:35,294 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:23:04,387 INFO run_team finalizado.
+2025-12-01 19:37:48,442 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:37:48,442 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:37:48,451 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:37:48,451 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:38:22,289 INFO run_team finalizado.
+2025-12-01 19:39:46,673 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:39:46,674 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:39:46,682 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:39:46,683 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:42:59,683 INFO run_team finalizado.
+2025-12-01 19:49:16,103 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:49:16,104 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:49:16,112 INFO Globals inyectados en teams_full_connection.
+2025-12-01 19:49:16,112 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 19:59:29,923 INFO run_team finalizado.
+2025-12-01 19:59:45,534 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 19:59:45,534 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 19:59:45,541 ERROR No se pudo importar teams_full_connection: cannot import name 'AgentFSM' from 'agent.fsm' (/home/cvelsd/DataScience/projectfootball/agent/fsm.py)
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 9, in <module>
+    from agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/__init__.py", line 1, in <module>
+    from .agent import Player
+  File "/home/cvelsd/DataScience/projectfootball/agent/agent.py", line 4, in <module>
+    from agent.fsm import AgentFSM
+ImportError: cannot import name 'AgentFSM' from 'agent.fsm' (/home/cvelsd/DataScience/projectfootball/agent/fsm.py)
+2025-12-01 20:01:40,185 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:01:40,186 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:01:40,193 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:01:40,193 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:01:51,418 INFO run_team finalizado.
+2025-12-01 20:02:19,066 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:02:19,066 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:02:19,071 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:02:19,071 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:05:41,298 INFO run_team finalizado.
+2025-12-01 20:05:41,470 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:05:41,470 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:05:41,481 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:05:41,481 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:06:36,263 INFO run_team finalizado.
+2025-12-01 20:09:41,795 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:09:41,796 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:09:41,807 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:09:41,807 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:12:31,126 INFO run_team finalizado.
+2025-12-01 20:16:32,816 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:16:32,816 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:16:32,826 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:16:32,826 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:20:23,831 INFO run_team finalizado.
+2025-12-01 20:22:36,658 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:22:36,658 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:22:36,669 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:22:36,669 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:25:41,372 INFO run_team finalizado.
+2025-12-01 20:33:57,235 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 20:33:57,235 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 20:33:57,246 INFO Globals inyectados en teams_full_connection.
+2025-12-01 20:33:57,246 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 20:55:13,838 INFO run_team finalizado.
+2025-12-01 21:04:22,887 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:04:22,887 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:04:22,896 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:04:22,896 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:07:12,635 INFO run_team finalizado.
+2025-12-01 21:09:49,564 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:09:49,564 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:09:49,573 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:09:49,573 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:09:09,994 INFO run_team finalizado.
+2025-12-01 21:09:11,461 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:09:11,461 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:09:11,468 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:09:11,468 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:09:17,626 INFO run_team finalizado.
+2025-12-01 21:19:12,799 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:19:12,799 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:19:12,809 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:19:12,809 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:23:52,098 INFO run_team finalizado.
+2025-12-01 21:24:22,623 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:24:22,623 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:24:22,632 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:24:22,633 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:29:02,918 INFO run_team finalizado.
+2025-12-01 21:29:26,768 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:29:26,768 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:29:26,778 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:29:26,778 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:29:49,103 INFO run_team finalizado.
+2025-12-01 21:31:28,993 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:31:28,993 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:31:29,002 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:31:29,002 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:34:12,139 INFO run_team finalizado.
+2025-12-01 21:34:35,881 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:34:35,881 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:34:35,890 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:34:35,891 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:35:16,839 INFO run_team finalizado.
+2025-12-01 21:37:33,919 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:37:33,919 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:37:33,930 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:37:33,930 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:38:27,632 INFO run_team finalizado.
+2025-12-01 21:39:34,239 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:39:34,239 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:39:34,249 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:39:34,249 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:40:43,907 INFO run_team finalizado.
+2025-12-01 21:43:26,632 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:43:26,632 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:43:26,642 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:43:26,643 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:47:52,369 INFO run_team finalizado.
+2025-12-01 21:48:34,075 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:48:34,075 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:48:34,086 INFO Globals inyectados en teams_full_connection.
+2025-12-01 21:48:34,086 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 21:49:45,919 INFO run_team finalizado.
+2025-12-01 21:58:53,951 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 21:58:53,951 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 21:58:53,957 ERROR No se pudo importar teams_full_connection: No module named 'roles'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 4, in <module>
+    from roles import RoleManager
+ModuleNotFoundError: No module named 'roles'
+2025-12-01 22:00:40,095 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 22:00:40,095 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 22:00:40,098 ERROR No se pudo importar teams_full_connection: No module named 'roles'
+Traceback (most recent call last):
+  File "/home/cvelsd/DataScience/projectfootball/run_team.py", line 42, in main
+    import teams_full_connection
+  File "/home/cvelsd/DataScience/projectfootball/teams_full_connection.py", line 4, in <module>
+    from roles import RoleManager
+ModuleNotFoundError: No module named 'roles'
+2025-12-01 22:01:00,696 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 22:01:00,696 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 22:01:00,708 INFO Globals inyectados en teams_full_connection.
+2025-12-01 22:01:00,708 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 22:01:09,798 INFO run_team finalizado.
+2025-12-01 22:01:32,576 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 22:01:32,576 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 22:01:32,584 INFO Globals inyectados en teams_full_connection.
+2025-12-01 22:01:32,584 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 22:02:51,559 INFO run_team finalizado.
+2025-12-01 22:04:59,933 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-01 22:04:59,933 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-01 22:04:59,943 INFO Globals inyectados en teams_full_connection.
+2025-12-01 22:04:59,943 INFO Llamando a teams_full_connection.main() ...
+2025-12-01 22:07:06,942 INFO run_team finalizado.
+2025-12-08 14:18:27,692 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-08 14:18:27,693 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-08 14:18:27,703 INFO Globals inyectados en teams_full_connection.
+2025-12-08 14:18:27,703 INFO Llamando a teams_full_connection.main() ...
+2025-12-08 14:18:35,131 INFO run_team finalizado.
+2025-12-08 14:34:09,364 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-08 14:34:09,365 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-08 14:34:09,377 INFO Globals inyectados en teams_full_connection.
+2025-12-08 14:34:09,377 INFO Llamando a teams_full_connection.main() ...
+2025-12-08 14:39:29,709 INFO run_team finalizado.
+2025-12-08 15:41:49,137 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-08 15:41:49,138 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-08 15:41:49,148 INFO Globals inyectados en teams_full_connection.
+2025-12-08 15:41:49,148 INFO Llamando a teams_full_connection.main() ...
+2025-12-08 15:42:47,871 INFO run_team finalizado.
+2025-12-08 15:51:53,697 INFO Logging inicializado. fichero=logs/run_team.log
+2025-12-08 15:51:53,697 INFO run_team: conf=conf_file.conf host=127.0.0.1 port=6000 players=11 team=Right
+2025-12-08 15:51:53,704 INFO Globals inyectados en teams_full_connection.
+2025-12-08 15:51:53,704 INFO Llamando a teams_full_connection.main() ...
+2025-12-08 15:52:53,572 INFO run_team finalizado.
