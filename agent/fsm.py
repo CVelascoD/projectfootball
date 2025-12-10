@@ -1,136 +1,111 @@
-# agent/fsm.py
 import math
 from planning.potentials import compute_force
 from planning.astar import AStarPlanner
+import agent.tactics as tactics 
 
 class AgentFSM:
-    """
-    FSM estilo Helios con awareness de roles + fallback A* + potenciales.
-    Estados: SearchBall, ApproachBall, TakeShot, DefendGoal
-    """
-
     def __init__(self, unum, role_manager):
         self.unum = unum
         self.role_manager = role_manager
         self.role_name = role_manager.get_role(unum)
-        self.state = "SearchBall"
-        self.astar = AStarPlanner(cell_size=2.0)  # Planificador A*
+        self.state = "Positioning"
+        self.astar = AStarPlanner(cell_size=3.0)
         self.waypoint_path = None
-        self.waypoint_idx = 0
+        self.current_wm = None 
 
-        # Distancias clave según rol
+    def step(self, world_model):
+        self.current_wm = world_model
+        play_mode = getattr(world_model, "play_mode", "before_kick_off")
+        
+        if play_mode.startswith("goal_"):
+            self.state = "GoalStop"
+            return {"turn": 0.0, "dash": 0.0, "kick": None}
+            
+        if play_mode == "before_kick_off":
+            self.state = "WaitKickOff"
+            return {"turn": 0.0, "dash": 0.0, "kick": None}
+
+        is_my_kickoff = (play_mode == f"kick_off_{world_model.self_side}")
+        ball = world_model.ball
+        
+        if is_my_kickoff and ball and ball["dist"] < 0.7:
+             print(f"Agent {self.unum}: KICKOFF! Aggressive Start.")
+             action = {"turn": 0.0, "dash": 0.0, "kick": None}
+             pass_cmd = tactics.get_best_pass(self.current_wm, self.unum)
+             if pass_cmd: action["kick"] = pass_cmd
+             else: action["kick"] = (100.0, 45.0)
+             return action
+
+        opponents = world_model.players_opponents
+        teammates = world_model.players_teammates
+        stamina = getattr(world_model, "stamina", 8000)
+
         if self.role_name == "Goalie":
-            self.APPROACH_DIST = 5.0
-            self.SHOOT_DIST = 0.5
-        elif self.role_name in ["CenterBack", "SideBack"]:
-            self.APPROACH_DIST = 3.5
-            self.SHOOT_DIST = 10.0
-        elif self.role_name == "Midfielder":
-            self.APPROACH_DIST = 2.5
-            self.SHOOT_DIST = 5.0
-        else:  # Forward, CenterForward
-            self.APPROACH_DIST = 2.0
-            self.SHOOT_DIST = 1.5
+            return self.strategy_goalie(ball, opponents, teammates, stamina)
+        else:
+            return self.strategy_field_player(ball, opponents, teammates, stamina)
 
-    def step(self, obs):
-        """
-        Decide acción:
-        - Potenciales para aproximación normal
-        - A* si bloqueado por oponentes
-        """
+    def strategy_goalie(self, ball, opponents, teammates, stamina):
         action = {"turn": 0.0, "dash": 0.0, "kick": None}
-
-        ball = obs.get("ball")
-        opponents = obs.get("opponents", [])
-        teammates = obs.get("teammates", [])
-        self_pos = (obs["self"]["x"], obs["self"]["y"])
-
-        # =================================
-        # 1. Sin pelota visible -> SearchBall
-        # =================================
-        if ball is None:
-            self.state = "SearchBall"
-            self.waypoint_path = None
-            action["turn"] = 30.0
-            action["dash"] = 15.0
+        if not ball:
+            self.state = "Search"
+            action["turn"] = 45.0
             return action
-
-        ball_dist = ball.get("dist", 999.0)
-        ball_dir = ball.get("dir", 0.0)
-
-        # =================================
-        # 2. Muy cerca -> TakeShot
-        # =================================
-        if ball_dist < self.SHOOT_DIST:
-            self.state = "TakeShot"
-            self.waypoint_path = None
-            action["kick"] = (100.0, ball_dir)
-            action["turn"] = 0.0
-            action["dash"] = 0.0
+        dist_ball = ball["dist"]
+        if dist_ball < 2.0:
+            self.state = "Clear"
+            action["kick"] = (100.0, 60.0)
             return action
+        if dist_ball < 15.0:
+            self.state = "Intercept"
+            target = {"x": ball["x"], "y": ball["y"]} 
+            angle, power = compute_force(self.unum, (0,0), target, opponents, teammates, self.role_manager)
+            action["turn"] = angle
+            action["dash"] = 100.0
+            return action
+        self.state = "Wait"
+        action["turn"] = ball["dir"]
+        action["dash"] = 0.0
+        return action
 
-        # =================================
-        # 3. Defensa proactiva (Goalie / Backs)
-        # =================================
-        if self.role_name in ["Goalie", "CenterBack", "SideBack"]:
-            self.state = "DefendGoal"
-            # CORRECCIÓN: usar paréntesis para la tupla
-            goal_x, goal_y = (52.5, 0.0) if self.role_name != "Goalie" else (-52.5, 0.0)
-            dx = goal_x - self_pos[0]
-            dy = goal_y - self_pos[1]
-            dist_goal = math.hypot(dx, dy)
-            angle_goal = math.degrees(math.atan2(dy, dx))
-            if dist_goal > 1.0:
-                action["turn"] = angle_goal
-                action["dash"] = min(80, dist_goal * 20)
+    def strategy_field_player(self, ball, opponents, teammates, stamina):
+        action = {"turn": 0.0, "dash": 0.0, "kick": None}
+        if not ball:
+            self.state = "Search"
+            action["turn"] = 60.0
+            return action
+        ball_dist = ball["dist"]
+        
+        if ball_dist < 0.7:
+            self.state = "Possession"
+            my_side = self.current_wm.self_side
+            shoot_cmd = tactics.get_shoot_action(self.current_wm, my_side)
+            if shoot_cmd:
+                action["kick"] = shoot_cmd
                 return action
+            pass_cmd = tactics.get_best_pass(self.current_wm, self.unum)
+            if pass_cmd:
+                action["kick"] = pass_cmd
+                return action
+            self.state = "Dribble"
+            action["kick"] = (40.0, 0.0) 
+            action["dash"] = 40.0        
+            return action
 
-
-        # =================================
-        # 4. Aproximación con A* si hay oponentes cercanos
-        # =================================
-        self.state = "ApproachBall"
-        close_opponents = [opp for opp in opponents if opp.get("dist", 999) < 5.0]
-
-        if len(close_opponents) >= 2 and self.waypoint_path is None:
-            obstacles = [(opp["x"], opp["y"]) for opp in opponents]
-            ball_world = (ball["x"], ball["y"])
-            self.waypoint_path = self.astar.plan(
-                start_world=self_pos,
-                goal_world=ball_world,
-                obstacles_world=obstacles
-            )
-            self.waypoint_idx = 0
-
-        # Seguir ruta A* si existe
-        if self.waypoint_path and len(self.waypoint_path) > 0:
-            if self.waypoint_idx >= len(self.waypoint_path):
-                self.waypoint_path = None
+        chase_threshold = 30.0 
+        if self.role_manager.should_defend(self.unum): chase_threshold = 20.0
+            
+        if ball_dist < chase_threshold:
+            self.state = "Chase"
+            target = {"x": ball["x"], "y": ball["y"]}
+            blocking_opps = [o for o in opponents if o["dist"] < 2.0 and abs(o["dir"]) < 20.0]
+            if len(blocking_opps) > 0: action["turn"] = 45.0 
             else:
-                wp_x, wp_y = self.waypoint_path[self.waypoint_idx]
-                wp_dist = math.hypot(wp_x - self_pos[0], wp_y - self_pos[1])
-                if wp_dist < 1.0:
-                    self.waypoint_idx += 1
-                else:
-                    wp_angle = math.degrees(math.atan2(wp_y - self_pos[1], wp_x - self_pos[0]))
-                    action["turn"] = wp_angle
-                    action["dash"] = min(100, wp_dist * 20)
-                    return action
-
-        # =================================
-        # 5. Por defecto -> Potenciales
-        # =================================
-        goal_pos = (52.5, 0.0)
-        angle, power = compute_force(
-            self.unum,
-            self_pos,
-            ball,
-            opponents,
-            teammates,
-            goal_pos,
-            self.role_manager
-        )
-
-        action["turn"] = angle
-        action["dash"] = min(100, power)
+                angle, power = compute_force(self.unum, (0,0), target, opponents, teammates, self.role_manager)
+                action["turn"] = angle
+                action["dash"] = power
+        else:
+            self.state = "Formation"
+            action["turn"] = ball["dir"]
+            action["dash"] = 0.0
         return action

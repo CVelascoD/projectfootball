@@ -1,59 +1,32 @@
 import math
+FIELD_X_MIN, FIELD_X_MAX = -52.5, 52.5
+FIELD_Y_MIN, FIELD_Y_MAX = -34.0, 34.0
 
-def compute_force(self_unum, self_pos, target, opponents, teammates, goal_pos, role_manager):
-    """
-    Calcula fuerza resultante usando potenciales.
-    target = {"x", "y", "dist", "dir"} → puede ser pelota o posición de apoyo
-    """
-    x, y = self_pos
-    role = role_manager.get_role(self_unum)
-    
+def compute_force(self_unum, self_pos, target, opponents, teammates, role_manager):
+    x, y = self_pos 
     f_x, f_y = 0.0, 0.0
-
-    # Atracción al objetivo
-    if target and target.get("dist", 999) < 60:
-        t_x, t_y = target["x"], target["y"]
-        dist_t = math.hypot(t_x, t_y)
+    if target:
+        dx, dy = target["x"] - x, target["y"] - y
+        dist_t = math.hypot(dx, dy)
+        force_strength = 150.0 
         if dist_t > 0.5:
-            # Intensidad por rol
-            if role in ["Forward", "CenterForward"]:
-                force_strength = 100.0
-            elif role == "Midfielder":
-                force_strength = 60.0
-            elif role in ["CenterBack", "SideBack"]:
-                force_strength = 40.0
-            else:
-                force_strength = 20.0
-            f_x += (t_x / dist_t) * force_strength
-            f_y += (t_y / dist_t) * force_strength
-
-    # Repulsión de oponentes
+            f_x += (dx / dist_t) * force_strength
+            f_y += (dy / dist_t) * force_strength
     for opp in opponents:
-        opp_dist = opp.get("dist", 999)
-        if opp_dist < 10:
-            o_x, o_y = opp["x"], opp["y"]
-            dist_o = math.hypot(o_x, o_y)
-            if dist_o > 0.5:
-                repulsion_mag = (10 - dist_o) * 8
-                f_x -= (o_x / dist_o) * repulsion_mag
-                f_y -= (o_y / dist_o) * repulsion_mag
-
-    # Atracción débil a portería para atacantes
-    if role in ["Forward", "CenterForward"] and target.get("dist", 999) < 60:
-        goal_x, goal_y = goal_pos
-        dist_goal = math.hypot(goal_x, goal_y)
-        if dist_goal > 1.0:
-            f_x += (goal_x / dist_goal) * 10.0
-            f_y += (goal_y / dist_goal) * 10.0
-
-    # Composición final
+        dist_o = math.hypot(opp["x"], opp["y"])
+        if dist_o < 0.1: dist_o = 0.1
+        if opp.get("dist", 999) < 4.0:
+            rep = min(120.0, 40.0 / (dist_o**2))
+            f_x -= (opp["x"] / dist_o) * rep
+            f_y -= (opp["y"] / dist_o) * rep
+    for mate in teammates:
+        dist_m = math.hypot(mate["x"], mate["y"])
+        if dist_m < 0.1: dist_m = 0.1
+        if mate.get("dist", 999) < 3.0:
+            rep = min(80.0, 20.0 / (dist_m**2))
+            f_x -= (mate["x"] / dist_m) * rep
+            f_y -= (mate["y"] / dist_m) * rep
+    
     force_mag = math.hypot(f_x, f_y)
-    if force_mag < 0.5:
-        angle_deg = 0.0
-        power = 0.0
-    else:
-        angle_rad = math.atan2(f_y, f_x)
-        angle_deg = angle_rad * 180.0 / math.pi
-        power = min(100.0, force_mag * 0.8)
-
-    return angle_deg, power
+    if force_mag < 0.5: return 0.0, 0.0 
+    return math.degrees(math.atan2(f_y, f_x)), min(100.0, force_mag)

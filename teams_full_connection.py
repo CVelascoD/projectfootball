@@ -5,14 +5,15 @@ import threading
 import json
 import os
 import re
+import traceback
 
 from agent import Player
 from agent.state import WorldModel
 from agent.fsm import AgentFSM
 from perception.parse import parse_see
 from agent.roles import RoleManager
+from agent.logger import GameLogger 
 
-# Estos valores serán sobrescritos por run_team.py
 SERVER_HOST = "127.0.0.1"
 SERVER_PORT = 6000
 NUM_PLAYERS = 11
@@ -21,194 +22,107 @@ CONF_FILE = "conf_file.conf"
 
 INIT_RE = re.compile(r"\(init\s+([lrLR])\s+(\d+)", re.IGNORECASE)
 
-
-# -------------------------
-# LOAD POSITIONS
-# -------------------------
 def load_positions(conf_file):
-    if not os.path.exists(conf_file):
-        raise FileNotFoundError(f"No se encontró {conf_file}")
-    with open(conf_file, "r") as f:
-        data = json.load(f)
+    if not os.path.exists(conf_file): raise FileNotFoundError(f"No se encontró {conf_file}")
+    with open(conf_file, "r") as f: data = json.load(f)
     positions = {}
     for i in range(1, NUM_PLAYERS + 1):
         entry = data["data"][0].get(str(i))
-        if entry is None:
-            raise KeyError(f"No hay posición para '{i}' en {conf_file}")
-        positions[i] = (float(entry["x"]), float(entry["y"]))
+        positions[i] = (float(entry["x"]), float(entry["y"])) if entry else (0.0, 0.0)
     return positions
 
-# -------------------------
-# SAFE SEND
-# -------------------------
 def safe_send(sock, msg, host, port):
     try:
-        if not msg.endswith("\n"):
-            msg = msg + "\n"
+        if not msg.endswith("\n"): msg = msg + "\n"
         sock.sendto(msg.encode(), (host, port))
-    except Exception as e:
-        print(f"[safe_send] send error: {e}")
+    except Exception as e: print(f"[safe_send] error: {e}")
 
-        
-# -------------------------
-# PLAYER THREAD
-# -------------------------
 def player_thread(idx, positions, host, port, role_manager):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind(("", 0))
     sock.settimeout(0.8)
 
-    # -------- 1. INIT --------
-    try:
-        safe_send(sock, f"(init {TEAM_NAME})", host, port)
-    except Exception as e:
-        print(f"[{TEAM_NAME} #{idx}] Error enviando init: {e}")
-        sock.close()
-        return
+    try: safe_send(sock, f"(init {TEAM_NAME})", host, port)
+    except: sock.close(); return
 
-    # -------- 2. WAIT INIT REPLY --------
-    side = None
-    unum = None
+    side, unum = None, None
     init_buf = ""
-    INIT_TIMEOUT = 4.0
     t0 = time.time()
-    server_addr = (host, port)
-
-    while time.time() - t0 < INIT_TIMEOUT:
+    while time.time() - t0 < 4.0:
         try:
-            data, server_addr = sock.recvfrom(8192)
-            msg = data.decode(errors="ignore")
-            init_buf += msg
+            data, _ = sock.recvfrom(8192)
+            init_buf += data.decode(errors="ignore")
             m = INIT_RE.search(init_buf)
-            if m:
-                side = m.group(1).lower()
-                unum = int(m.group(2))
-                print(f"[{TEAM_NAME} #{idx}] INIT OK: side={side}, unum={unum}")
-                break
-        except socket.timeout:
-            continue
-        except Exception as e:
-            print(f"[{TEAM_NAME} #{idx}] init recv error: {e}")
-            break
+            if m: side, unum = m.group(1).lower(), int(m.group(2)); break
+        except: continue
 
-    if unum is None:
-        print(f"[{TEAM_NAME} #{idx}] Init failed, closing.")
-        sock.close()
-        return
+    if unum is None: sock.close(); return
 
-    # -------- 3. POSITIONING --------
     target_pos = positions.get(unum) or positions.get(idx)
     if target_pos:
-        x, y = target_pos
-        print(f"[{TEAM_NAME} #{idx}] Moving to ({x:.2f},{y:.2f})")
-        for _ in range(6):
-            safe_send(sock, f"(move {x:.2f} {y:.2f})", host, port)
-            time.sleep(0.08)
+        for _ in range(6): safe_send(sock, f"(move {target_pos[0]:.2f} {target_pos[1]:.2f})", host, port); time.sleep(0.08)
 
-    # -------- 4. CREATE PLAYER + FSM --------
-    if role_manager is None:
-        from agent.roles import RoleManager
-        role_manager = RoleManager(CONF_FILE)
-    
+    if role_manager is None: role_manager = RoleManager(CONF_FILE)
     player = Player(side, unum, role_manager)
+    player.world_model.self_role = role_manager.get_role(unum)
+    
+    logger = GameLogger(TEAM_NAME, unum)
     sock.settimeout(1.0)
 
-    # -------- 5. MAIN LOOP --------
     while True:
         try:
             data, server_addr = sock.recvfrom(8192)
             msg = data.decode(errors="ignore")
 
-            # Log preview
-            preview = msg.strip().splitlines()[0] if msg.strip() else ""
-            if preview:
-                print(f"[{TEAM_NAME} #{idx}] <<< {preview[:80]}")
-
-            # PROCESAR MENSAJE
             if msg.startswith("(see"):
-                # Parser + FSM + enviar acciones
                 try:
-                    obs = parse_see(msg)
-                    player.last_obs = obs
-                    action = player.fsm.step(obs)
+                    obs_dict = parse_see(msg)
+                    player.world_model.update_from_see(obs_dict)
+                    action = player.fsm.step(player.world_model)
+                    logger.log_tick(player.world_model, action)
                     
-                    # Generar y enviar comandos
                     cmds = []
-                    if action.get("turn") != 0.0:
-                        cmds.append(f"(turn {action['turn']:.1f})")
-                    if action.get("dash") != 0.0:
-                        cmds.append(f"(dash {action['dash']:.1f})")
-                    if action.get("kick") is not None:
-                        power, angle = action["kick"]
-                        cmds.append(f"(kick {power:.1f} {angle:.1f})")
+                    turn_val, dash_val = action.get("turn", 0.0), action.get("dash", 0.0)
+                    kick_val = action.get("kick")
                     
-                    if not cmds:
-                        cmds = ["(turn 0)"]
+                    if turn_val != 0.0: cmds.append(f"(turn {turn_val:.1f})")
+                    if dash_val != 0.0: cmds.append(f"(dash {dash_val:.1f})")
+                    if kick_val: cmds.append(f"(kick {kick_val[0]:.1f} {kick_val[1]:.1f})")
                     
-                    for cmd in cmds:
-                        print(f"[{TEAM_NAME} #{idx}] >>> {cmd}")
-                        sock.sendto((cmd + "\n").encode(), server_addr)
-                        time.sleep(0.003)
-                        
-                except Exception as e:
-                    print(f"[{TEAM_NAME} #{idx}] (see) error: {e}")
-                    import traceback
-                    traceback.print_exc()
+                    if not cmds: cmds = ["(turn 0)"]
+                    for cmd in cmds: safe_send(sock, cmd, host, port); time.sleep(0.003)
+                except Exception as e: traceback.print_exc()
+
+            elif msg.startswith("(hear") and "referee" in msg:
+                try:
+                    m = re.search(r'\(hear\s+\d+\s+referee\s+([a-zA-Z0-9_]+)\)', msg)
+                    if m: player.world_model.play_mode = m.group(1)
+                except: pass
 
             elif msg.startswith("(sense_body"):
-                # Actualizar stamina si es necesario
                 try:
-                    stamina_match = re.search(r'\(stamina\s+([\d\.]+)\s+', msg)
-                    if stamina_match and player.last_obs:
-                        player.last_obs["self"]["stamina"] = float(stamina_match.group(1))
-                except:
-                    pass
+                    m = re.search(r'\(stamina\s+([\d\.]+)\s+', msg)
+                    if m: player.world_model.update_from_sense_body(stamina=float(m.group(1)))
+                except: pass
+        except: break
 
-        except:
-            break
-
+    logger.close()
     sock.close()
 
-
-# -------------------------
-# MAIN
-# -------------------------
 def main():
-    host = SERVER_HOST
-    port = SERVER_PORT
-
-    try:
-        positions = load_positions(CONF_FILE)
-    except Exception as e:
-        print(f"[main] Error cargando posiciones desde {CONF_FILE}: {e}")
-        positions = {}
-
-    # CARGAR ROLES DESDE CONF
-    try:
-        role_manager = RoleManager(CONF_FILE)
-        print("[main] Roles cargados desde conf_file.conf")
-    except Exception as e:
-        print(f"[main] Error cargando roles: {e}")
-        role_manager = None
+    try: positions = load_positions(CONF_FILE)
+    except: positions = {}
+    try: role_manager = RoleManager(CONF_FILE)
+    except: role_manager = None
 
     threads = []
     for i in range(1, NUM_PLAYERS + 1):
-        t = threading.Thread(
-            target=player_thread,
-            args=(i, positions, host, port, role_manager),  # ← AÑADE role_manager
-            daemon=True
-        )
-        t.start()
-        threads.append(t)
-        time.sleep(0.05)
+        t = threading.Thread(target=player_thread, args=(i, positions, SERVER_HOST, SERVER_PORT, role_manager), daemon=True)
+        t.start(); threads.append(t); time.sleep(0.05)
 
-    print(f"[main] Lanzados {len(threads)} hilos, esperando Ctrl-C para finalizar.")
+    print(f"[main] Lanzados {len(threads)} hilos.")
     try:
-        while True:
-            time.sleep(1.0)
-    except KeyboardInterrupt:
-        print("[main] Interrupción recibida, saliendo.")
+        while True: time.sleep(1.0)
+    except KeyboardInterrupt: print("Saliendo.")
 
-if __name__ == "__main__":
-    main()
-
+if __name__ == "__main__": main()

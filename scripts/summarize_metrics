@@ -1,0 +1,24 @@
+import json, argparse, glob, os
+def analyze_log(filepath):
+    print(f"--- Analizando {os.path.basename(filepath)} ---")
+    total_ticks, total_dash, total_turn, kick_count, intent_shoot, intent_pass, last_stamina = 0, 0.0, 0.0, 0, 0, 0, 8000
+    with open(filepath, 'r') as f:
+        for line in f:
+            try:
+                data = json.loads(line)
+                total_ticks += 1
+                action = data.get("action", {})
+                total_dash += abs(action.get("dash", 0.0))
+                total_turn += abs(action.get("turn", 0.0))
+                if action.get("kick"):
+                    kick_count += 1
+                    if action["kick"][0] > 90: intent_shoot += 1
+                    else: intent_pass += 1
+                last_stamina = data.get("stamina", 0)
+            except: continue
+    if total_ticks:
+        print(f"Duración: {total_ticks} ticks\nIntensidad Promedio: {total_dash/total_ticks:.1f}\nKicks: {kick_count} (Tiros: {intent_shoot}, Pases: {intent_pass})\nStamina final: {last_stamina}\n")
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser(); p.add_argument("--logdir", default="logs"); args = p.parse_args()
+    for f in sorted(glob.glob(os.path.join(args.logdir, "*.jsonl"))): analyze_log(f)

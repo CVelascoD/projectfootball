@@ -1,94 +1,38 @@
 from collections import deque
 
 class WorldModel:
-    """
-    Memoria interna del jugador.
-    Mantiene información reciente del entorno.
-    """
-
     def __init__(self, max_history=5):
-        # tiempo
         self.time = 0
-
-        # info propia
+        self.play_mode = "before_kick_off"
         self.self_side = None
         self.self_unum = None
-        self.stamina = None
-        self.can_kick = False
-
-        # objetos visibles
+        self.self_role = "Unknown"
+        self.stamina = 8000
         self.ball = None
-        self.flags = []
-        self.goals = []
-        self.lines = []
-
+        self.goals = [] 
+        self.last_goal_seen = {"l": None, "r": None} 
         self.players_teammates = []
         self.players_opponents = []
-
-        # historial
         self.ball_history = deque(maxlen=max_history)
-        self.player_history = deque(maxlen=max_history)
-
-    # -----------------------------------------------
-    # Actualización desde un (see ...)
-    # -----------------------------------------------
-
 
     def update_from_see(self, parsed):
-        """
-        parsed viene de parse_see(), que devuelve:
-          {
-            "time": int,
-            "ball": {"dist": float, "dir": float} | None,
-            "players": [{team, num, dist, dir}, ...],
-            "flags": [{id, dist, dir}, ...]
-          }
-        """
-
-        # actualizar tiempo
         if "time" in parsed and parsed["time"] is not None:
             self.time = parsed["time"]
-
-        # pelota
-        self.ball = parsed.get("ball", None)
-
-        # jugadores
+        self.ball = parsed.get("ball")
+        current_goals = parsed.get("goals", [])
+        self.goals = current_goals
+        for g in current_goals:
+            self.last_goal_seen[g["side"]] = g
         self.players_teammates = []
         self.players_opponents = []
-
-        for p in parsed.get("players", []):
-            if p["team"] == self.self_side:
+        raw_players = parsed.get("teammates", []) + parsed.get("opponents", [])
+        for p in raw_players:
+            p_team = p.get("team", "")
+            if self.self_side and p_team.lower() == self.self_side.lower():
                 self.players_teammates.append(p)
             else:
                 self.players_opponents.append(p)
 
-        # flags
-        self.flags = parsed.get("flags", [])
-
-
-
-
-    # -----------------------------------------------
-    # Actualización desde (sense_body ...)
-    # -----------------------------------------------
     def update_from_sense_body(self, stamina=None, can_kick=False):
         if stamina is not None:
             self.stamina = stamina
-        self.can_kick = can_kick
-
-    # -----------------------------------------------
-    # Utilidad: estimar dirección futura del balón
-    # -----------------------------------------------
-    def estimate_ball_motion(self):
-        if len(self.ball_history) < 2:
-            return None
-
-        prev = self.ball_history[-2]
-        curr = self.ball_history[-1]
-
-        return {
-            "dist_change": curr["dist_change"],
-            "dir_change": curr["dir_change"]
-        }
-
-
