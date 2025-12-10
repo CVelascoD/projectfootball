@@ -64,6 +64,7 @@ def player_thread(idx, positions, host, port, role_manager):
 
     if role_manager is None: role_manager = RoleManager(CONF_FILE)
     player = Player(side, unum, role_manager)
+    # IMPORTANTE: Guardar rol para logs
     player.world_model.self_role = role_manager.get_role(unum)
     
     logger = GameLogger(TEAM_NAME, unum)
@@ -76,13 +77,20 @@ def player_thread(idx, positions, host, port, role_manager):
 
             if msg.startswith("(see"):
                 try:
+                    # 1. PERCEPCIÓN
                     obs_dict = parse_see(msg)
+                    # 2. MEMORIA (Actualizar WorldModel)
                     player.world_model.update_from_see(obs_dict)
+                    # 3. DECISIÓN (Pasar WorldModel, NO el dict crudo)
                     action = player.fsm.step(player.world_model)
+                    
+                    # 4. LOGGING
                     logger.log_tick(player.world_model, action)
                     
                     cmds = []
-                    turn_val, dash_val = action.get("turn", 0.0), action.get("dash", 0.0)
+                    # Uso de .get(key, 0.0) para evitar errores si falta una clave
+                    turn_val = action.get("turn", 0.0)
+                    dash_val = action.get("dash", 0.0)
                     kick_val = action.get("kick")
                     
                     if turn_val != 0.0: cmds.append(f"(turn {turn_val:.1f})")
